@@ -5,23 +5,30 @@ using namespace std;
 #define all(x) (x).begin(), (x).end()
 
 void solve(){
+     map<char,int>mp;
     int n;
     cin>>n;
     string s;
     cin>>s;
-    
-    map<int,int>m;
     for(int i=0;i<n;i++){
-        m[s[i]]++;
+        mp[s[i]]++;
     }
-    int count=m.size();
-    for(auto it:m){
-        if(it.second>=2){
-            count++;
+    int count1=0,count2=0;
+    for(auto it:mp){
+        if(it.second%2==0){
+            count1+=1;
+            count2+=1;
+        }
+        else if(it.second==1){
+            count1+=1;
+            
+        }
+        else{
+            count1+=1;
+            count2+=1;
         }
     }
-
-    cout<<count<<endl;
+    cout<<count1+count2<<"\n";
 
 }
 int main(){
