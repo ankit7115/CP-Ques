@@ -1,4 +1,4 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 
 #define ll long long
@@ -7,19 +7,16 @@ using namespace std;
 void solve(){
     int n;
     cin>>n;
-    string s;
-    cin>>s;
-    s+='#';
-    int i=2;
-    bool flag=false;
-    while(i!=s.size()){
-        if(s[i-1]!=s[i]){
-            flag=true;
-            break;
-        }
-        i+=3;
+    int x;
+    map<int,int>mp;
+    for(int i=0;i<n;i++){
+        cin>>x;
+        mp[x]++;
     }
-    if(!flag){
+    if(mp[1]%2==0 and mp[2]%2==0){
+        cout<<"YES\n";
+    }
+    else if(mp[2]%2!=0 and mp[1]%2==0 and mp[1]>0){
         cout<<"YES\n";
     }
     else{

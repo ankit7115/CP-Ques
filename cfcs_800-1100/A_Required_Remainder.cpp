@@ -1,29 +1,22 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 
 #define ll long long
 #define all(x) (x).begin(), (x).end()
 
 void solve(){
-    int n;
-    cin>>n;
-    string s;
-    cin>>s;
-    s+='#';
-    int i=2;
-    bool flag=false;
-    while(i!=s.size()){
-        if(s[i-1]!=s[i]){
-            flag=true;
-            break;
-        }
-        i+=3;
+    int x,y,n;
+    cin>>x>>y>>n;
+
+    int rem=n%x;
+    if(rem==y){
+        cout<<n<<"\n";
     }
-    if(!flag){
-        cout<<"YES\n";
+    else if(rem>y){
+        cout<<n-(rem-y)<<"\n";
     }
     else{
-        cout<<"NO\n";
+        cout<<n-rem-(x-y)<<"\n";
     }
 }
 int main(){

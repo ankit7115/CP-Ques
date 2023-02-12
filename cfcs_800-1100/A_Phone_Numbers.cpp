@@ -1,4 +1,4 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 
 #define ll long long
@@ -9,21 +9,18 @@ void solve(){
     cin>>n;
     string s;
     cin>>s;
-    s+='#';
-    int i=2;
-    bool flag=false;
-    while(i!=s.size()){
-        if(s[i-1]!=s[i]){
-            flag=true;
-            break;
+    int count8=0;
+    int mul=n/11;
+    for(int i=0;i<n;i++){
+        if(s[i]=='8'){
+            count8++;
         }
-        i+=3;
     }
-    if(!flag){
-        cout<<"YES\n";
+    if(mul>=count8){
+        cout<<count8;
     }
     else{
-        cout<<"NO\n";
+        cout<<mul;
     }
 }
 int main(){
@@ -31,11 +28,11 @@ int main(){
     cin.tie(NULL);
     cout.tie(NULL);
 
-    int t;
-    cin>>t;
+    // int t;
+    // cin>>t;
 
-    while(t--){
+    // while(t--){
     solve();
-    }
+    //}
     return 0;
 }

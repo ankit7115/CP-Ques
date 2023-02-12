@@ -1,29 +1,26 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 
 #define ll long long
 #define all(x) (x).begin(), (x).end()
 
 void solve(){
-    int n;
-    cin>>n;
-    string s;
-    cin>>s;
-    s+='#';
-    int i=2;
-    bool flag=false;
-    while(i!=s.size()){
-        if(s[i-1]!=s[i]){
-            flag=true;
+    int n,x;
+    cin>>n>>x;
+
+    int apartment=0;
+    for(int i=1;;i++){
+        if(i==1){
+            apartment+=2;
+        }
+        else{
+            apartment+=x;
+        }
+        if(apartment>=n){
+            cout<<i<<"\n";
             break;
         }
-        i+=3;
-    }
-    if(!flag){
-        cout<<"YES\n";
-    }
-    else{
-        cout<<"NO\n";
+
     }
 }
 int main(){

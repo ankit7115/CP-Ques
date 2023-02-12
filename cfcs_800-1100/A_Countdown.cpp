@@ -1,4 +1,4 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 
 #define ll long long
@@ -9,22 +9,20 @@ void solve(){
     cin>>n;
     string s;
     cin>>s;
-    s+='#';
-    int i=2;
-    bool flag=false;
-    while(i!=s.size()){
-        if(s[i-1]!=s[i]){
-            flag=true;
-            break;
+    int sum=0;
+    for(int i=s.size()-1;i>=0;i--){
+        if(i==s.size()-1){
+        if(s[i]!='0'){
+            sum+=(s[i]-48);
         }
-        i+=3;
-    }
-    if(!flag){
-        cout<<"YES\n";
-    }
-    else{
-        cout<<"NO\n";
-    }
+        }
+        else{
+        if(s[i]!='0'){
+            sum+=(s[i]-48)+1;
+        }   
+        }
+    }  
+    cout<<sum<<"\n";
 }
 int main(){
     ios_base::sync_with_stdio(false);
