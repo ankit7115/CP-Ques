@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include<iostream>
 #define SIZE 50
 using namespace std;
 
@@ -61,7 +61,7 @@ void insert(struct CQUEUE *cq){
         cq->rear=0;
     }
     else{
-        if(cq->rear==cq->n and cq->front !=0){
+        if(cq->rear==cq->n-1 and cq->front !=0){
             cq->rear=0;
         }
         else{
@@ -104,22 +104,14 @@ void print(struct CQUEUE *cq){
     }
     if(cq->front==-1){
         cout<<"Queue is Empty\n";
+        return;
     }
-    else{
-        if(cq->front<=cq->rear)
-        for(int i=cq->front;i<=cq->rear;i++){
+    else {
+        int i = cq->front;
+        while(i != cq->rear) {
             cout<<cq->arr[i]<<" ";
+            i = (i+1)%cq->n;
         }
-        
-        else{
-         for(int i=cq->front;i<cq->n;i++){
-            cout<<cq->arr[i]<<" ";
-        }
-
-        for(int i=0;i<cq->rear;i++){
-            cout<<cq->arr[i]<<" ";
-        }
-
-        }
+        cout<<cq->arr[cq->rear];
     }
 }
